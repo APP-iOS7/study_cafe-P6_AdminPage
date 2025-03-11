@@ -1,0 +1,56 @@
+@media screen and (max-width: 430px) {
+
+    /* 기본 스타일 초기화 */
+    body {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        background-color: #ecdcbf;
+    }
+
+    .login_container {
+        position: relative;
+        top: 10%;
+        left: 1%;
+        max-width: 350px;
+        height: 600px;
+        padding: 20px;
+        border-radius: 10px;
+        background-color: white;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        /* 디버깅용 스타일 */
+        /* 경계선 추가로 위치 확인 */
+    }
+
+    .login_container img {
+        width: 210px;
+        height: 30px;
+        margin-bottom: 40px;
+    }
+
+    .login_filed #email,
+    .login_container #password {
+        position: relative;
+        left: -40%;
+        margin-top: 30px;
+        margin-right: 150px;
+        max-width: 60%;
+        height: 50px;
+        /* 소형 화면에 맞게 줄임 */
+        font-size: 16px;
+        /* 패딩과 테두리 포함 */
+    }
+
+    .login_filed button {
+        position: relative;
+        left: -40%;
+        max-width: 60%;
+    }
+
+
+}

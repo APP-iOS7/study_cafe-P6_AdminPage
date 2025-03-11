@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="admin.css">
+    <link rel="stylesheet" href="media.css">
+    <title>예약확인 시스템</title>
+    <script type="module" src="firebase.js" defer></script>
+</head>
+
+<body>
+    <div class="logoImage">
+        <img src="./image/weblogo.png" alt="">
+    </div>
+
+    <div class="login_container">
+        <img src="./image/weblogo50.png" alt="">
+
+        <div class="login_filed">
+            <form id="loginForm">
+                <input type="email" id="email" placeholder="이메일" />
+                <br />
+                <input type="password" id="password" placeholder="비밀번호" />
+                <br />
+                <button type="submit" id="submit">로그인</button>
+            </form>
+
+        </div>
+
+        <div class="login_container">
+            <h1>로그인</h1>
+            <input type="email" id="email" placeholder="이메일" />
+            <br />
+            <input type="password" id="password" placeholder="비밀번호" />
+            <br />
+            <button id="loginButton">로그인</button>
+            <p id="message"></p>
+        </div>
+
+
+        <script type="module">
+
+
+            // 로그인 처리 함수 
+            window.handleLogin = async () => {
+                const email = document.getElementById('email').value;
+                const password = document.getElementById('password').value;
+                const result = await login(email, password);
+
+                const messageElement = document.getElementById('message');
+                if (result.success) {
+                    messageElement.style.color = 'green';
+                    messageElement.text.color = '로그인 성공! 환영합니다, ${result.user.email}';
+                    window.location.href = '/admin.html';
+                } else {
+                    messageElement.style.color = 'red';
+                    messageElement.textContent = `로그인 실패: ${result.message}`;
+                }
+            };
+
+            document.getElementById('loginButton').addEventListener('click', handleLogin);
+        </script>
+</body>
+
+</html>
